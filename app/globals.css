@@ -2,32 +2,104 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+.spacer {
+  margin-top: 100vh;
+  height: 100vh;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+.wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+}
+
+.baa-inner {
+  width: 100vw; 
+  height: 100vh; 
+  position: fixed;  
+  bottom: 0;   
+  img {
+    width: 100%;
+    height: 100%;
+  } 
+  img:not(.sky) {
+    object-fit: contain;  
+  }  
+  img.sky {
+    object-fit: cover;  
+  } 
+}
+
+/* sky container */
+.baa-sky {
+  height: 200vh;
+  z-index: -7;
+  width: 100%;
+}
+
+/* mountains bg */
+.baa-bg {
+  height: 65%;
+  width: calc(100% + 100px);
+  left: -50px;  
+  right: auto;
+  z-index: -2;
+  img {
+    object-position: bottom left;
+  }
+}
+/* mountains bg */
+.baa-fg {
+  height: 85%;
+  width: calc(100% + 100px);
+  right: -50px;
+  left: auto;
+  z-index: 1;
+  img {
+    object-position: bottom right;
+  }
+}
+/* mountains cloud */
+.baa-cloud {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -5;
+  .cloud-inner {
+    position: absolute;
+    top: auto;
+    bottom: 50%;
+    right: 14%;
+    border-radius: 50%;    
+    width: 250px;
+    height: 250px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; 
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+/* mountains fg */
+@media (max-width: 640px) { 
+  .wrapper .baa-sky {
+    height: 100vh;
+  } 
+  .baa-cloud {
+    .cloud-inner {
+      right: 10%;
+      bottom: 40%;
+    }
+  }
+  .baa-bg {
+    height: 48%;
+  } 
+  .baa-fg {
+    height: 42%;
   }
 }
