@@ -1,12 +1,9 @@
 "use client";
 
-import { useRef } from "react";
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from 'next/image';
-import { SiBuymeacoffee } from "react-icons/si";
-import Link from "next/link";
 
 gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(useGSAP);
@@ -20,7 +17,6 @@ const Landscape = () => {
 
   useGSAP(() => { 
 
-    const landscape_wrapper = document.querySelector(".wrapper");
     const landscape_sky = document.querySelectorAll(".baa-sky img");    
     const landscape_mtns_bg = document.querySelectorAll(".baa-bg img");
     const landscape_mtns_fg = document.querySelectorAll(".baa-fg img");  
@@ -31,16 +27,16 @@ const Landscape = () => {
     
   
     const skyTrigger = ScrollTrigger.create({
-      trigger: landscape_wrapper,
+      trigger: 'body',
       pin: false,
       start: "top top",
       markers: false,
-      end: "300px",
+      end: "100vh",
     });  
     
-    mm.add("(min-width: 768px)", () => {
+    mm.add("(min-width: 768px)", () => {      
       landscape_timeline.to(landscape_sky,{
-        y:"300px",
+        y:"100vh",
         scrollTrigger:{
           start:() => skyTrigger?.start,
           end:() => skyTrigger?.end,
@@ -48,6 +44,7 @@ const Landscape = () => {
         }
       });       
     });
+
     foreground_timeline.to(landscape_mtns_bg,{
       y:"390px",
       x:"44px",
