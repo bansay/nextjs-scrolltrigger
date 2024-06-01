@@ -61,41 +61,12 @@
     object-position: bottom right;
   }
 }
-/* mountains cloud */
-.baa-cloud {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -5;
-  .cloud-inner {
-    position: absolute;
-    top: auto;
-    bottom: 50%;
-    right: 14%;
-    border-radius: 50%;    
-    width: 250px;
-    height: 250px;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center; 
-  }
-}
 
 /* mountains fg */
 @media (max-width: 640px) { 
   .wrapper .baa-sky {
     height: 100vh;
   } 
-  .baa-cloud {
-    .cloud-inner {
-      right: 10%;
-      bottom: 40%;
-    }
-  }
   .baa-bg {
     height: 48%;
   } 
