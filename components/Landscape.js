@@ -17,9 +17,10 @@ const Landscape = () => {
 
   useGSAP(() => { 
 
-    const landscape_sky = document.querySelectorAll(".baa-sky img");    
-    const landscape_mtns_bg = document.querySelectorAll(".baa-bg img");
-    const landscape_mtns_fg = document.querySelectorAll(".baa-fg img");  
+    const wrapper = document.querySelectorAll(".wrapper");
+    const landscape_sky = document.querySelectorAll(".baa-sky");    
+    const landscape_mtns_bg = document.querySelectorAll(".baa-bg");
+    const landscape_mtns_fg = document.querySelectorAll(".baa-fg");  
 
     let foreground_timeline = gsap.timeline();
     let landscape_timeline = gsap.timeline();
@@ -27,7 +28,7 @@ const Landscape = () => {
     
   
     const skyTrigger = ScrollTrigger.create({
-      trigger: 'body',
+      trigger: wrapper,
       pin: false,
       start: "top top",
       markers: false,
