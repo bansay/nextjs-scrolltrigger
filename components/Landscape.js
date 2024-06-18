@@ -10,8 +10,6 @@ gsap.registerPlugin(useGSAP);
 
 
 const Landscape = () => {
-  
-  //const container = useRef();
 
   let mm = gsap.matchMedia();  
 

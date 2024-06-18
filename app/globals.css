@@ -35,7 +35,7 @@
 .baa-sky {
   top: -100vh;
   height: 200vh;  
-  z-index: -7;
+  z-index: -4;
   width: 100%;
 }
 
@@ -58,7 +58,7 @@
   width: calc(100% + 100px);
   right: -50px;
   left: auto;
-  z-index: 1;
+  z-index: -1;
   img {
     object-position: bottom right;
   }
@@ -68,6 +68,7 @@
 @media (max-width: 640px) { 
   .wrapper .baa-sky {
     height: 100vh;
+    top: 0;
   } 
   .baa-bg {
     height: 48%;
